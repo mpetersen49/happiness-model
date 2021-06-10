@@ -35,6 +35,8 @@ function displayData(prediction) {
 
         
 
+        // add plot showing ranking and where their country lies
+
     });
 };
 
