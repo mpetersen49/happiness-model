@@ -1,0 +1,14 @@
+.carousel_bg {
+    padding-top: 10px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 10px;
+    background-color: darkgreen;
+    color: white;
+    font-weight: bold;
+} 
+
+.option {
+    text-align: left;    
+    font-weight: normal;
+} 
