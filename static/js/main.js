@@ -4,12 +4,12 @@ button.on("click", predict);
 
 function predict() {
 
-    var m1 = 1.13599719;
-    var m2 = 0.64589619;
-    var m3 = 1.01271055;
-    var m4 = 1.48127094;
-    var m5 = 0.59244165;
-    var m6 = 0.85822861;
+    var m1 = 1.13599719; // gdp
+    var m2 = 0.64589619; // social
+    var m3 = 1.01271055; // health
+    var m4 = 1.48127094; // freedom
+    var m5 = 0.59244165; // generosity
+    var m6 = 0.85822861; // gov trust
     var b = 2.17506744;
 
     var gdpInput = d3.select('input[name="radioQuestionGDP"]:checked').property("value");
@@ -19,17 +19,20 @@ function predict() {
     var generosityInput = d3.select('input[name="radioQuestionGenerosity"]:checked').property("value");
     var govTrustInput = d3.select('input[name="radioQuestionGovtTrust"]:checked').property("value");
 
-    var test = gdpQuart(gdpInput);
+    var gdp = gdpCalc(gdpInput);
+    var social = socCalc(socialInput);
+    var freedom = freeCalc(freedomInput);
+    var health = healthCalc(healthInput);
+    var generosity = genCalc(generosityInput);
+    var trust = trustCalc(govTrustInput);
 
-    console.log(test);
-
-    var prediction = m1 * gdpInput + m2 * socialInput + m3 * healthInput + m4 * freedomInput + m5 * govTrustInput + m6 * generosityInput + b;
+    var prediction = (m1 * gdp + m2 * social + m3 * health + m4 * freedom + m5 * trust + m6 * generosity + b).toFixed(2);
 
     var output = d3.select("#output");
 
     output.text(`Your happiness score is ${prediction}!`);
 
-    displayData(prediction);
+    // displayData(prediction);
 
 };
 
@@ -44,43 +47,146 @@ function displayData(prediction) {
     });
 };
 
-function gdpQuart(gdp) {
+// quartiles for model parameters
+var gdpMin = 0;
+var gdp25 = 0.605;
+var gdp50 = 0.982;
+var gdp75 = 1.2337;
+var gdpMax = 1.870766;
+
+var socMin = 0;
+var soc25 = 0.8702;
+var soc50 = 1.125;
+var soc75 = 1.328;
+var socMax = 1.644;
+
+var healthMin = 0;
+var health25 = 0.44006;
+var health50 = 0.6447239;
+var health75 = 0.808;
+var healthMax = 1.141;
+
+var freeMin = 0
+var free25 = 0.31048;
+var free50 = 0.431;
+var free75 = 0.537;
+var freeMax = 0.724;
+
+var trustMin = 0;
+var trust25 = 0.054;
+var trust50 = 0.091;
+var trust75 = 0.156030;
+var trustMax = 0.55191;
+
+var genMin = 0;
+var gen25 = 0.13;
+var gen50 = 0.202;
+var gen75 = 0.279060;
+var genMax = 0.838075;
+
+// random number functions to translate question answers to model inputs
+function gdpCalc(gdp) {
     switch(gdp) {
         case "1":
-            test = 4;
-            break;
+            // 25-50
+            return Math.random() * (gdp50 - gdp25) + gdp25;
         case "2":
-            console.log("0-25");
-            break;
+            // 0-25
+            return Math.random() * (gdp25 - gdpMin) + gdpMin;
         case "3":
-            console.log("75-99");
-            break;
+            // 75-99
+            return Math.random() * (gdpMax - gdp75) + gdp75;
         case "4":
-            console.log("50-75");
-            break;
+            // 50-75
+            return Math.random() * (gdp75 - gdp50) + gdp50;
+    }
+}
+
+function socCalc(social) {
+    switch(social) {
+        case "1":
+            // 0-25
+            return Math.random() * (soc25 - socMin) + socMin;
+        case "2":
+            // 25-50
+            return Math.random() * (soc50 - soc25) + soc25;
+        case "3":
+            // 75-99
+            return Math.random() * (socMax - soc75) + soc75;
+        case "4":
+            // 50-75
+            return Math.random() * (soc75 - soc50) + soc50;
+    }
+}
+
+function healthCalc(health) {
+    switch(health) {
+        case "1":
+            // 25-50
+            return Math.random() * (health50 - health25) + health25;
+        case "2":
+            // 50-75
+            return Math.random() * (health75 - health50) + health50;
+        case "3":
+            // 75-99
+            return Math.random() * (healthMax - health75) + health75;
+        case "4":
+            // 0-25
+            return Math.random() * (health25 - healthMin) + healthMin;
+    }
+}
+
+function freeCalc(freedom) {
+    switch(freedom) {
+        case "1":
+            // 0-25
+            return Math.random() * (free25 - freeMin) + freeMin;
+        case "2":
+            // 25-50
+            return Math.random() * (free50 - free25) + free25;
+        case "3":
+            // 75-99
+            return Math.random() * (freeMax - free75) + free75;
+        case "4":
+            // 50-75
+            return Math.random() * (free75 - free50) + free50;
+    }
+}
+
+function genCalc(generosity) {
+    switch(generosity) {
+        case "1":
+            // 75-99
+            return Math.random() * (genMax - gen75) + gen75;
+        case "2":
+            // 0-25
+            return Math.random() * (gen25 - genMin) + genMin;
+        case "3":
+            // 50-75
+            return Math.random() * (gen75 - gen50) + gen50;
+        case "4":
+            // 25-50
+            return Math.random() * (gen50 - gen25) + gen25;
+    }
+}
+
+function trustCalc(trust) {
+    switch(trust) {
+        case "1":
+            // 50-75
+            return Math.random() * (trust75 - trust50) + trust50;
+        case "2":
+            // 75-99
+            return Math.random() * (trustMax - trust75) + trust75;
+        case "3":
+            // 0-25
+            return Math.random() * (trust25 - trustMin) + trustMin;
+        case "4":
+            // 25-50
+            return Math.random() * (trust50 - trust25) + trust25;
     }
 }
 //displayData(1); //remove this later
-
-// gdp
-// 0-25 0-0.605
-// 25-50 0.605-0.982
-// 50-75 0.982-1.2337
-// 75-99 1.2337-1.870766
-
-//social
-// 0-25 0-0.8702
-// 25-50 0.8702-1.125
-// 50-75 1.125-1.328
-// 75-99 1.328-1.644
-
-//health
-// 0-25 0-0.44006
-// 25-50 0.44006-0.647239
-// 50-75 0.647239-0.808
-// 75-99 0.808-1.141
-
-//freedom
 
 // Quartiles: GDP: min: 0 25%: 0.605 50%: 0.982 75%: 1.2337 max: 1.870766
 
