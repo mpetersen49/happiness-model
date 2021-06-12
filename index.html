@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
@@ -8,7 +10,11 @@
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: 1px solid #050505;"
+  >
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,7 +47,7 @@
   </nav>
 
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="border: 2px solid #050505;">
       <h1 class="display-4">Jumbotron!</h1>
       <p class="lead">This is placed inside a container</p>
       <hr class="my-4">
@@ -49,18 +55,247 @@
     </div>
   </div>
   <br>
-  <div class="container">
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-  </div>
+  <div class = "container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 
+    <div class="carousel-inner carousel_bg">
+      <div class="carousel-item active">
+        <!--<img src="Resources/bkgrd.jpg" class="d-block w-100" alt="..."> -->
+        <p>Let's start by naming your country...</p>
+        <br>
+          <input class="form-control" id="exampleFormControlInput1" placeholder="name your country here">
+        
+      </div>
+
+      <!--QUESTION ONE-->
+      <div class="carousel-item">
+        <p>	In terms of the future, do you see your self… </p>
+        <br>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionOne" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Getting by on minimum wage in nice 1 bedroom apartment
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionOne" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+           Surfing the waves, living the simple life out of a broken down van
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionOne" id="flexRadioDefault3">
+          <label class="form-check-label" for="flexRadioDefault3">
+            Working every day all day, with a nice view of your backyard pool oasis. You don't keep up with the Jones', you are the Jones'
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionOne" id="flexRadioDefault4">
+          <label class="form-check-label" for="flexRadioDefault4">
+            Balancing a day job with a nice single family home in a nice cookie cutter neighborhood
+          </label>
+        </div>
+      </div>
+
+      <!--QUESTION TWO-->
+      <div class="carousel-item">
+        <p>It's not something you'd like to think about, but your local Chick-Fil-A just got shutdown for overworking their billboard cows. How do you cope with that kind of loss?</p>
+        <br>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionTwo" id="flexRadioDefault5">
+          <label class="form-check-label" for="flexRadioDefault5">
+            It's fine, you got this… you're one strong lone
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionTwo" id="flexRadioDefault6">
+          <label class="form-check-label" for="flexRadioDefault6">
+            Thankfully, you're not alone in your grief and you've got a friend to cry with
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionTwo" id="flexRadioDefault7">
+          <label class="form-check-label" for="flexRadioDefault7">
+            Your whole town has banded together to help the billboard cows get a fair wage, you're all in this together
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="radioQuestionTwo" id="flexRadioDefault8">
+          <label class="form-check-label" for="flexRadioDefault8">
+            Your family has decided to cheer you up with a trip to your second fave fast food place… Chipotle?!?!
+          </label>
+        </div>
+      </div>
+
+      <!--QUESTION THREE-->
+      <div class="carousel-item">
+        <p>Living life to fullest is what it's all about…</p>
+        <br>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+          <label class="form-check-label" for="flexRadioDefault9">
+            So much so, you're getting shout outs from your data analytics boot camp class for jumping out of plane!
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10">
+          <label class="form-check-label" for="flexRadioDefault10">
+            And you'll gladly live it, under a blanket, watching the latest Top 10 movie on Netflix
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11">
+          <label class="form-check-label" for="flexRadioDefault11">
+            With a nice stroll along the beach or hike through the woods. Living simply is the best!
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault12">
+          <label class="form-check-label" for="flexRadioDefault12">
+            Partying all day and all night, like it's 1999!!
+          </label>
+        </div>
+      </div>
+
+      <!--QUESTION FOUR-->
+      <div class="carousel-item">
+        <p>	Which movie best describes the way things ought to be?        </p>
+        <br>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault13">
+          <label class="form-check-label" for="flexRadioDefault13">
+            The Hunger Games
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault14">
+          <label class="form-check-label" for="flexRadioDefault14">
+            Harry Potter and the Sorcerer's Stone
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault15">
+          <label class="form-check-label" for="flexRadioDefault15">
+            Idiocracy
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault816">
+          <label class="form-check-label" for="flexRadioDefault16">
+            Independence Day
+          </label>
+        </div>
+      </div>
+
+      <!--QUESTION FIVE-->
+      <div class="carousel-item">
+        <p>Guess what?!?!? You just got $1000 free and clear! The best way to spend it…</p>
+        <br>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault17">
+          <label class="form-check-label" for="flexRadioDefault17">
+            Donate it all to Paws for a Cause… puppies need loving homes too!!
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault18">
+          <label class="form-check-label" for="flexRadioDefault18">
+            Like it's burning a hole in your pocket...as fast as you can!
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault19">
+          <label class="form-check-label" for="flexRadioDefault19">
+            Give some to the local food shelf and save the rest for a rainy day
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault20">
+          <label class="form-check-label" for="flexRadioDefault20">
+            Take out some friends and family to a nice dinner out, they deserve a treat! 
+          </label>
+        </div>
+      </div>
+
+      <!--QUESTION SIX-->
+      <div class="carousel-item">
+        <p>You've almost completed creating your new country… but who will lead it?</p>
+        <br>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault21">
+          <label class="form-check-label" for="flexRadioDefault21">
+            Duh, yourself, obviously!
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault22">
+          <label class="form-check-label" for="flexRadioDefault22">
+            Belle, you know, from Beauty and the Beast
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault23">
+          <label class="form-check-label" for="flexRadioDefault23">
+            Al Capone
+          </label>
+        </div>
+        <div class="form-check option">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault24">
+          <label class="form-check-label" for="flexRadioDefault24">
+            Jeff Bezos 
+          </label>
+        </div>
+      </div>
+
+      <!--SUBMIT-->
+      <div class="carousel-item">
+        <p>Let's see how happy your country will be...</p>
+        <button>Submit</button>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+    <div class="row">       
+        <p>hello</p>
+        <select class="form-select" aria-label="Default select example" id= "question_trust">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    </div>
+        
+    <div class="row">     
+        <p>hello</p>
+        <select class="form-select" aria-label="Default select example" id= "question_generosity">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    </div> 
+    <div class="row">   
+        <button class="button" id="calc_happy" > 
+          <p>hello</p>
+
+        </button>
+      </div>  
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 <script src="static/js/main.js"></script>
 
 </body>
 
 </html>
+
