@@ -16,10 +16,14 @@ function predict() {
     var socialInput = d3.select('input[name="question-social"]:checked').property("value");
     var healthInput = d3.select('input[name="question-health"]:checked').property("value");
     var freedomInput = d3.select('input[name="question-freedom"]:checked').property("value");
-    var govTrustInput = d3.select('input[name="question-trust"]:checked').property("value");
     var generosityInput = d3.select('input[name="question-generosity"]:checked').property("value");
+    var govTrustInput = d3.select('input[name="question-trust"]:checked').property("value");
 
-    var prediction = m1 * gdpInput + m2 * socialInput + m3 * healthInput + m4 * freedomInput + m5 * govTrustInput + m6 * generosityInput + b;
+    var test = gdpQuart(gdpInput);
+
+    console.log(test);
+
+    var prediction = m1 * test + m2 * socialInput + m3 * healthInput + m4 * freedomInput + m5 * govTrustInput + m6 * generosityInput + b;
 
     var output = d3.select("#output");
 
@@ -31,7 +35,7 @@ function predict() {
 
 function displayData(prediction) {
     d3.csv("../../Resources/HappinessModelData.csv").then(data => {
-        console.log(data);
+        // console.log(data);
 
         
 
@@ -40,4 +44,20 @@ function displayData(prediction) {
     });
 };
 
+function gdpQuart(gdp) {
+    switch(gdp) {
+        case "1":
+            test = 4;
+            break;
+        case "2":
+            console.log("0-25");
+            break;
+        case "3":
+            console.log("75-99");
+            break;
+        case "4":
+            console.log("50-75");
+            break;
+    }
+}
 //displayData(1); //remove this later
