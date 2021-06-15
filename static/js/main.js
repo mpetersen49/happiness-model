@@ -18,6 +18,7 @@ function predict() {
     var freedomInput = d3.select('input[name="radioQuestionFreedom"]:checked').property("value");
     var generosityInput = d3.select('input[name="radioQuestionGenerosity"]:checked').property("value");
     var govTrustInput = d3.select('input[name="radioQuestionGovtTrust"]:checked').property("value");
+    var countryName = d3.select("#country-name").property("value");
 
     var gdp = gdpCalc(gdpInput);
     var social = socCalc(socialInput);
@@ -29,10 +30,19 @@ function predict() {
     var prediction = (m1 * gdp + m2 * social + m3 * health + m4 * freedom + m5 * trust + m6 * generosity + b).toFixed(2);
 
     var output = d3.select("#output");
+    var jumbo1 = d3.select("#jumbo1");
+    var para1 = d3.select("#para1");
+    var classResult = happinessClass(prediction);
 
-    output.text(`Your happiness score is ${prediction}!`);
+    jumbo1.text(`${countryName}'s Happiness score is...`);
+    output.text(`${prediction}`);
+    para1.text(`${classResult}`);
 
     // displayData(prediction);
+
+    // jumbo1 country name
+    // output place quartile info
+
 
 };
 
@@ -87,16 +97,16 @@ var genMax = 0.838075;
 // random number functions to translate question answers to model inputs
 function gdpCalc(gdp) {
     switch(gdp) {
-        case "1":
+        case "2":
             // 25-50
             return Math.random() * (gdp50 - gdp25) + gdp25;
-        case "2":
+        case "1":
             // 0-25
             return Math.random() * (gdp25 - gdpMin) + gdpMin;
-        case "3":
+        case "4":
             // 75-99
             return Math.random() * (gdpMax - gdp75) + gdp75;
-        case "4":
+        case "3":
             // 50-75
             return Math.random() * (gdp75 - gdp50) + gdp50;
     }
@@ -110,10 +120,10 @@ function socCalc(social) {
         case "2":
             // 25-50
             return Math.random() * (soc50 - soc25) + soc25;
-        case "3":
+        case "4":
             // 75-99
             return Math.random() * (socMax - soc75) + soc75;
-        case "4":
+        case "3":
             // 50-75
             return Math.random() * (soc75 - soc50) + soc50;
     }
@@ -121,16 +131,16 @@ function socCalc(social) {
 
 function healthCalc(health) {
     switch(health) {
-        case "1":
+        case "2":
             // 25-50
             return Math.random() * (health50 - health25) + health25;
-        case "2":
+        case "3":
             // 50-75
             return Math.random() * (health75 - health50) + health50;
-        case "3":
+        case "4":
             // 75-99
             return Math.random() * (healthMax - health75) + health75;
-        case "4":
+        case "1":
             // 0-25
             return Math.random() * (health25 - healthMin) + healthMin;
     }
@@ -144,10 +154,10 @@ function freeCalc(freedom) {
         case "2":
             // 25-50
             return Math.random() * (free50 - free25) + free25;
-        case "3":
+        case "4":
             // 75-99
             return Math.random() * (freeMax - free75) + free75;
-        case "4":
+        case "3":
             // 50-75
             return Math.random() * (free75 - free50) + free50;
     }
@@ -155,16 +165,16 @@ function freeCalc(freedom) {
 
 function genCalc(generosity) {
     switch(generosity) {
-        case "1":
+        case "4":
             // 75-99
             return Math.random() * (genMax - gen75) + gen75;
-        case "2":
+        case "1":
             // 0-25
             return Math.random() * (gen25 - genMin) + genMin;
         case "3":
             // 50-75
             return Math.random() * (gen75 - gen50) + gen50;
-        case "4":
+        case "2":
             // 25-50
             return Math.random() * (gen50 - gen25) + gen25;
     }
@@ -172,20 +182,46 @@ function genCalc(generosity) {
 
 function trustCalc(trust) {
     switch(trust) {
-        case "1":
+        case "3":
             // 50-75
             return Math.random() * (trust75 - trust50) + trust50;
-        case "2":
+        case "4":
             // 75-99
             return Math.random() * (trustMax - trust75) + trust75;
-        case "3":
+        case "1":
             // 0-25
             return Math.random() * (trust25 - trustMin) + trustMin;
-        case "4":
+        case "2":
             // 25-50
             return Math.random() * (trust50 - trust25) + trust25;
     }
 }
+
+function happinessClass(prediction) {
+    var happy25 = 4.509;
+    var happy50 = 5.321;
+    var happy75 = 6.182;
+    
+    if (prediction > happy75) {
+        return "Score 6.183+ : Your countries happiness ranks in the 75-99% quartile. Other countries that have ranked in this quartile between 2015-2019 are"
+    }
+    else if (prediction > happy50) {
+        return "Score 5.322 - 6.182: Your countries happiness ranks in the 50-75% quartile. Other countries that have ranked in this quartile between 2015-2019 are"
+    }
+    else if (prediction > happy25) {
+        return "Score 4.510 - 5.321: Your countries happiness ranks in the 25-50% quartile. Other countries that have ranked in this quartile between 2015-2019 are Portugal, Dominican Republic, Greece and Vietnam."
+    }
+    else {
+        return "Score 0 - 4.509: Your countries happiness ranks in the 0-25% quartile. Other countries that have ranked in this quartile between 2015-2019 are Sri Lanka, Egypt, Ukraine and Haiti."
+    }
+};
+
+// min starting with 2.693
+// 25% 4.509
+// 50% 5.321
+// 75% 6.182
+// max 7.769
+
 //displayData(1); //remove this later
 
 // Quartiles: GDP: min: 0 25%: 0.605 50%: 0.982 75%: 1.2337 max: 1.870766
