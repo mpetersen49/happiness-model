@@ -29,7 +29,9 @@
   text-align: center;
 }
 
-
+.bg-white {
+  margin-top: 50px;
+}
 /* 
   box-sizing: border-box;
   font-family: Ubuntu, sans-serif;
