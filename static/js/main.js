@@ -48,14 +48,16 @@ function predict() {
 
 function displayData(prediction) {
     d3.csv("../../Resources/HappinessModelData.csv").then(data => {
-        // console.log(data);
+        console.log(data);
+
+         
 
         
 
-        // add plot showing ranking and where their country lies
-
     });
 };
+
+displayData(1);
 
 // quartiles for model parameters
 var gdpMin = 0;
@@ -203,16 +205,16 @@ function happinessClass(prediction) {
     var happy75 = 6.182;
     
     if (prediction > happy75) {
-        return "Score 6.183+ : Your countries happiness ranks in the 75-99% quartile. Other countries that have ranked in this quartile between 2015-2019 are"
+        return "Score 6.183+ : Your country's happiness ranks in the 75-99% quartile. Other countries that have ranked in this quartile between 2015-2019 are the United States, Germany, Norway, Sweden and Finland."
     }
     else if (prediction > happy50) {
-        return "Score 5.322 - 6.182: Your countries happiness ranks in the 50-75% quartile. Other countries that have ranked in this quartile between 2015-2019 are"
+        return "Score 5.322 - 6.182: Your country's happiness ranks in the 50-75% quartile. Other countries that have ranked in this quartile between 2015-2019 are Argentina, Croatia, Japan, Russia and Malaysia."
     }
     else if (prediction > happy25) {
-        return "Score 4.510 - 5.321: Your countries happiness ranks in the 25-50% quartile. Other countries that have ranked in this quartile between 2015-2019 are Portugal, Dominican Republic, Greece and Vietnam."
+        return "Score 4.510 - 5.321: Your country's happiness ranks in the 25-50% quartile. Other countries that have ranked in this quartile between 2015-2019 are Portugal, Dominican Republic, Greece and Vietnam."
     }
     else {
-        return "Score 0 - 4.509: Your countries happiness ranks in the 0-25% quartile. Other countries that have ranked in this quartile between 2015-2019 are Sri Lanka, Egypt, Ukraine and Haiti."
+        return "Score 0 - 4.509: Your country's happiness ranks in the 0-25% quartile. Other countries that have ranked in this quartile between 2015-2019 are Sri Lanka, Egypt, Ukraine and Haiti."
     }
 };
 
