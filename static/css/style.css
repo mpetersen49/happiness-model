@@ -1,9 +1,9 @@
 .carousel_bg {
     padding-top: 10px;
     padding-left: 200px;
-    padding-right: 150px;
+    padding-right: 200px;
     padding-bottom: 10px;
-    background-color: rgb(114, 112, 112);
+    background-color: rgb(50, 132, 187);
     color: white;
     font-weight: bold;
 } 
@@ -16,8 +16,8 @@
 .jumbotron {
   padding-top: 10px;
   text-align: center;
-  background-color: rgb(114, 112, 112);
-  color: white;
+  background-color: aliceblue;
+  color: black;
 }
 
 .img11 {
@@ -46,6 +46,10 @@ body {
   padding: 0;
   margin: 0;
   background-color: white;
+    background-image: url('../../Resources/happiness_bkgd.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  background-size: cover;
 }
 
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
