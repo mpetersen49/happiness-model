@@ -27,7 +27,7 @@ function predict() {
     var generosity = genCalc(generosityInput);
     var trust = trustCalc(govTrustInput);
 
-    var prediction = (m1 * gdp + m2 * social + m3 * health + m4 * freedom + m5 * trust + m6 * generosity + b).toFixed(2);
+    var prediction = (m1 * gdp + m2 * social + m3 * health + m4 * freedom + m5 * generosity + m6 * trust + b).toFixed(2);
 
     var output = d3.select("#output");
     var jumbo1 = d3.select("#jumbo1");
